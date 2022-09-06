@@ -1,22 +1,15 @@
 float _angle = 0;
-int nPlanets = floor(random(2,30));
+int nPlanets = 0;
+int maxPlanets = 100;
 
-float[] distance = new float[nPlanets];
-float[] size = new float[nPlanets];
-float[] speed = new float[nPlanets];
-color[] col = new color[nPlanets];
+float[] distance = new float[maxPlanets];
+float[] size = new float[maxPlanets];
+float[] speed = new float[maxPlanets];
+color[] col = new color[maxPlanets];
 
 void setup()
 {
   size(800,600,P3D);
-  
-  for(int i = 0; i < nPlanets; i = i + 1)
-  {
-    distance[i]=random(200,550);
-    size[i]=random(30,100);
-    speed[i]=random(-2.0,2.0);
-    col[i]= color(random(255),random(255),random(255),50);
-  } 
 }
 
 void draw()
@@ -33,6 +26,30 @@ void draw()
  }
  
  _angle = _angle + 1;
+}
+
+void mouseClicked()
+{
+  if(nPlanets < maxPlanets)
+  {
+  println(mouseX+";"+mouseY);
+  println((width/2) +";"+(height/2));
+  float dist = dist(mouseX,mouseY,(width/2),(width/2));
+  createPlanet(nPlanets,dist);
+  nPlanets = nPlanets + 1;
+  }
+  else
+  {
+    println("No more planets available.");
+  }
+}
+
+void createPlanet(int i, float dist)
+{
+    distance[i]=dist;
+    size[i]=random(30,100);
+    speed[i]=random(-2.0,2.0);
+    col[i]= color(random(255),random(255),random(255),50);
 }
 
 void aPlanet(float size,float distance,float speed,color col)
