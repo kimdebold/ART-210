@@ -40,12 +40,12 @@ class Sprite
   {
     pushMatrix();
       translate(this.location.x,this.location.y);
-      noStroke();
-      fill(0,200,255);
-      circle(0,0,10);
+      //noStroke();
+      //fill(0,200,255);
+      //circle(0,0,10);
       translate(-this.reg.x,-this.reg.y);
-      fill(color(0,100,250,20));
-      rect(0,0,boxx,boxy);
+      //fill(color(0,100,250,20));
+      //rect(0,0,boxx,boxy);
       if(this.nAni > 0) this.ani[this.currentAni].display();
     popMatrix();
     
