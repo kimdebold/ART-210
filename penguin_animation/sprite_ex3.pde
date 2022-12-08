@@ -35,6 +35,28 @@ void setup()
   g3.addAnimation(new Animation(files4));
 }
 
+//end screen
+void endScreen()
+{
+  noStroke();
+  fill(0);
+  rect(0,0,width,height);
+  fill(255);
+  textAlign(CENTER,CENTER);
+  text("You are in heaven. Press a key to resurrection.",width/2,height/2);
+}
+
+//startscreen
+void startScreen()
+{
+  noStroke();
+  fill(color(255,0,100));
+  rect(0,0,width,height);
+  fill(255);
+  textAlign(CENTER,CENTER);
+  text("Press any key to start",width/2,height/2);
+}
+
 void draw()
 {
   background(255);
