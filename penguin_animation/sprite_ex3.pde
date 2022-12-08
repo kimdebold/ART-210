@@ -62,3 +62,14 @@ void keyPressed()
 {
   s.jump();
 }
+
+boolean collision(Sprite s1, Sprite s2)
+{
+  PVector loc1 = new PVector(s1.location.x,s1.location.y);
+  PVector loc2 = new PVector(s2.location.x,s2.location.y);
+  PVector d = loc1.sub(loc2);
+  float dist = d.mag();
+  float limit = (min(s1.boxx,s1.boxy)/2)+(min(s2.boxx,s2.boxy)/2);
+  if(dist < limit) return(true);
+  return(false);
+}
